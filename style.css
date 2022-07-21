@@ -1,0 +1,106 @@
+body {
+  background-color: rgb(139, 233, 233);
+}
+
+/* Titulo */
+
+.titulo {
+  text-align: center;
+  margin: 20px;
+  font-size: 40px;
+}
+
+/* pokemons textos e item*/
+li p {
+  color: white;
+  text-transform: uppercase;
+  width: 300px;
+  height: 80px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+li h3 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+.pokemonH {
+  width: 300px;
+  height: 80px;
+}
+
+/* Efeitos */
+
+.pokemonH:hover {
+  background-color: rgb(28, 112, 112);
+}
+
+.pokemonH:hover img {
+  width: 100px;
+  height: 100px;
+  transition: 4s;
+}
+
+img {
+  animation: fadeIn 4s linear;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* pokemons */
+
+img {
+  width: 40px;
+  height: 40px;
+}
+
+.pokemonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.pokemonContainer li {
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(68, 183, 183);
+}
+
+/* Mobile */
+
+@media(max-width: 1000px) {
+
+  .pokemonContainer.waterContainer {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0 30px;
+    min-width: 300px;
+  }
+
+  .poisonContainer {
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 300px;
+  }
+
+  .normalContainer {
+    flex-direction: column;
+    align-items: center;
+    min-width: 300px;
+  }
+
+}
