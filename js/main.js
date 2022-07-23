@@ -1,26 +1,27 @@
 // Botões de navegação da pagina HOME
-export function navegarNomeID() {
-  window.location.href = "busca-nome-ID.html";
+export function searchNameId() {
+  window.location.href = "search-name-id.html";
 }
 
-export function navegarTipo() {
-  window.location.href = "busca-tipo.html";
+export function searchType() {
+  window.location.href = "search-for-type.html";
 }
 
 //Botão que faz a função de voltar para HOME
-export function navegacaoHome() {
+export function Home() {
   window.location.href = "home.html";
 }
 
 //Função que faz a busca dos pokemons
-export async function buscaPokemon() {
+export async function searchPokemon() {
   const pokemon = document.getElementById("pokemon").value;
   const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;
   try {
-    const pokeResposta = await fetch(url);
-    const data = await pokeResposta.json();
+    const pokeResponse = await fetch(url);
+    const data = await pokeResponse.json();
     const name = document.getElementById("name");
     const id = document.getElementById("id");
+    console.log(data);
     const move1 = document.getElementById("move1");
     const move2 = document.getElementById("move2");
     const move3 = document.getElementById("move3");
@@ -42,22 +43,22 @@ export async function buscaPokemon() {
 }
 
 //Busca pokemons pelo tipo
-export async function buscaTipo() {
-  const pokemonTipo = document.getElementById("pokemonTipo").value;
-  const url = `https://pokeapi.co/api/v2/type/${pokemonTipo}`;
+export async function searchForType() {
+  const pokemonsType = document.getElementById("pokemonsType").value;
+  const url = `https://pokeapi.co/api/v2/type/${pokemonsType}`;
   try {
-    const pokeTipo = await fetch(url);
-    const data = await pokeTipo.json();
-    const lista = data.pokemon;
-    lista.forEach((pokeType) => {
+    const pokemonType = await fetch(url);
+    const data = await pokemonType.json();
+    const list = data.pokemon;
+    list.forEach((pokeType) => {
       const pokeArray = pokeType.pokemon.name;
       const pokeUrl = pokeType.pokemon.url;
-      const pokeNome = document.getElementById("pokeNome");
-      const separaUrl = pokeUrl
+      const pokeName = document.getElementById("pokeName");
+      const separateUrl = pokeUrl
         .split("/")
-        .map((urlSepara) => String(urlSepara));
-      const idSeparado = separaUrl.slice(6, 7);
-      pokeNome.innerHTML += `<li><a id="pegaInfo" href="./detalhes-pokemon.html?id=${idSeparado}"># ${idSeparado} ${pokeArray}</a></li>`;
+        .map((urlSeparate) => String(urlSeparate));
+      const idcaught = separateUrl.slice(6, 7);
+      pokeName.innerHTML += `<li><a id="pokeInfo" href="./pokemon-details.html?id=${idcaught}"># ${idcaught} ${pokeArray}</a></li>`;
     });
   } catch (error) {
     alert("Tipo não encontrado");
@@ -66,13 +67,13 @@ export async function buscaTipo() {
 }
 
 //Funçao que pega os detalhes do pokemon
-export async function pegaInfos() {
+export async function pokeDetail() {
   const urlParams = new URLSearchParams(window.location.search);
-  const myParam = urlParams.get("id");
-  const url = `https://pokeapi.co/api/v2/pokemon/${myParam}`;
+  const pokeParam = urlParams.get("id");
+  const url = `https://pokeapi.co/api/v2/pokemon/${pokeParam}`;
   try {
-    const pokeResposta = await fetch(url);
-    const data = await pokeResposta.json();
+    const pokeResponse = await fetch(url);
+    const data = await pokeResponse.json();
     const name = document.getElementById("name");
     const id = document.getElementById("id");
     const move1 = document.getElementById("move1");

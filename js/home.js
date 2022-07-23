@@ -1,3 +1,3 @@
-import { navegarNomeID, navegarTipo } from "./main.js";
-document.getElementById("buscaTipo").onclick = navegarTipo;
-document.getElementById("buscaNomeID").onclick = navegarNomeID;
+import { searchNameId, searchType } from "./main.js";
+document.getElementById("searchNameId").onclick = searchNameId;
+document.getElementById("searchType").onclick = searchType;
