@@ -19,15 +19,22 @@ export async function buscaPokemon() {
   try {
     const pokeResposta = await fetch(url);
     const data = await pokeResposta.json();
-    let img = data.sprites.front_default;
+    const name = document.getElementById("name");
+    const id = document.getElementById("id");
+    const move1 = document.getElementById("move1");
+    const move2 = document.getElementById("move2");
+    const move3 = document.getElementById("move3");
+    const move4 = document.getElementById("move4");
+    const move5 = document.getElementById("move5");
+    const img = data.sprites.front_default;
     document.getElementById("picture").setAttribute("src", img);
-    document.getElementById("name").innerHTML = data.name;
-    document.getElementById("id").innerHTML = "#" + data.id;
-    document.getElementById("move1").innerHTML = data.moves[0].move.name;
-    document.getElementById("move2").innerHTML = data.moves[1].move.name;
-    document.getElementById("move3").innerHTML = data.moves[2].move.name;
-    document.getElementById("move4").innerHTML = data.moves[3].move.name;
-    document.getElementById("move5").innerHTML = data.moves[4].move.name;
+    id.innerHTML = "#" + data.id;
+    name.innerHTML = data.name;
+    move1.innerHTML = `<p>${data.moves[0].move.name}</p>`;
+    move2.innerHTML = `<p>${data.moves[1].move.name}</p>`;
+    move3.innerHTML = `<p>${data.moves[2].move.name}</p>`;
+    move4.innerHTML = `<p>${data.moves[3].move.name}</p>`;
+    move5.innerHTML = `<p>${data.moves[4].move.name}</p>`;
   } catch (error) {
     alert("ID ou nome não encontrado");
     window.location.reload(true);
