@@ -1,6 +1,5 @@
-import { Home } from "./main.js";
+import { Home } from "./module.js";
 document.querySelector(".Home").onclick = Home;
-
 async function searchForType() {
   const pokemonsType = document.getElementById("pokemonsType").value;
   const url = `https://pokeapi.co/api/v2/type/${pokemonsType}`;

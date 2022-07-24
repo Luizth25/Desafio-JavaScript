@@ -1,3 +1,4 @@
+import { name, id, picture } from "./module.js";
 async function pokeDetail() {
   const urlParams = new URLSearchParams(window.location.search);
   const pokeParam = urlParams.get("id");
@@ -5,19 +6,17 @@ async function pokeDetail() {
   try {
     const pokeResponse = await fetch(url);
     const data = await pokeResponse.json();
-    const name = document.getElementById("name");
-    const id = document.getElementById("id");
     const img = data.sprites.front_default;
-    document.getElementById("picture").setAttribute("src", img);
+    picture.setAttribute("src", img);
     id.innerHTML = "#" + data.id;
     name.innerHTML = data.name;
     const move = data.moves;
-    const movi = move.map(
+    const pokeMovi = move.map(
       (moviment) => `<li><p>${moviment.move.name}</p></li>`
     );
-    const movimento = movi.slice(0, 5).join("");
-    const ul = document.getElementById("moveList");
-    ul.innerHTML = movimento;
+    const moves = pokeMovi.slice(0, 5).join("");
+    const moveList = document.getElementById("moveList");
+    moveList.innerHTML = moves;
   } catch (error) {
     return error;
   }

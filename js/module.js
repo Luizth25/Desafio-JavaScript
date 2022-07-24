@@ -11,3 +11,10 @@ export function searchType() {
 export function Home() {
   window.location.href = "home.html";
 }
+
+export const name = document.getElementById("name");
+export const id = document.getElementById("id");
+export const picture = document.getElementById("picture");
+export const li = document.createElement("li");
+export const a = document.createElement("a");
+export const ul = document.getElementById("moveList");
