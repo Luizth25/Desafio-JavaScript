@@ -1,5 +1,6 @@
 import { Home } from "./module.js";
 document.querySelector(".Home").onclick = Home;
+
 async function searchForType() {
   const pokemonsType = document.getElementById("pokemonsType").value;
   const url = `https://pokeapi.co/api/v2/type/${pokemonsType}`;
@@ -10,12 +11,18 @@ async function searchForType() {
     list.forEach((pokeType) => {
       const pokeArray = pokeType.pokemon.name;
       const pokeUrl = pokeType.pokemon.url;
-      const pokeName = document.getElementById("pokeName");
       const separateUrl = pokeUrl
         .split("/")
         .map((urlSeparate) => String(urlSeparate));
       const idcaught = separateUrl.slice(6, 7);
-      pokeName.innerHTML += `<li><a id="pokeInfo" href="./pokemon-details.html?id=${idcaught}">#${idcaught} ${pokeArray}</a></li>`;
+      const ul = document.getElementById("pokeName");
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = `./pokemon-details.html?id=${idcaught}`;
+      const texto = document.createTextNode(`#${idcaught}-${pokeArray}`);
+      ul.appendChild(li);
+      li.appendChild(a);
+      a.appendChild(texto);
     });
   } catch (error) {
     alert("Tipo não encontrado");
