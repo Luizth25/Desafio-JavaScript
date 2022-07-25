@@ -1,4 +1,5 @@
-import { name, id, picture } from "./module.js";
+import { name, id, picture, back } from "./module.js";
+document.getElementById("back").onclick = back;
 async function pokeDetail() {
   const urlParams = new URLSearchParams(window.location.search);
   const pokeParam = urlParams.get("id");
@@ -10,13 +11,17 @@ async function pokeDetail() {
     picture.setAttribute("src", img);
     id.innerHTML = "#" + data.id;
     name.innerHTML = data.name;
-    const move = data.moves;
-    const pokeMovi = move.map(
-      (moviment) => `<li><p>${moviment.move.name}</p></li>`
-    );
-    const moves = pokeMovi.slice(0, 5).join("");
-    const moveList = document.getElementById("moveList");
-    moveList.innerHTML = moves;
+    const move = data.moves.slice(0, 5);
+    move.forEach((movePoke) => {
+      const moves = movePoke.move.name;
+      const li = document.createElement("li");
+      const p = document.createElement("p");
+      const pokeMove = document.createTextNode(moves);
+      const ul = document.querySelector("ul");
+      p.appendChild(pokeMove);
+      li.appendChild(p);
+      ul.appendChild(li);
+    });
   } catch (error) {
     return error;
   }

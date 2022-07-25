@@ -1,5 +1,5 @@
-import { Home, name, id, picture } from "./module.js";
-document.querySelector(".Home").onclick = Home;
+import { home, name, id, picture } from "./module.js";
+document.querySelector(".home").onclick = home;
 async function searchPokemon() {
   const pokemon = document.getElementById("pokemon").value;
   const url = `https://pokeapi.co/api/v2/pokemon/${pokemon}`;

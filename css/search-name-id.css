@@ -13,7 +13,7 @@ body {
   gap: 5px;
 }
 
-.Home {
+.home {
   background-color: rgb(68, 183, 183);
   border: 3px solid rgb(28, 112, 112);
   color: white;
@@ -22,7 +22,7 @@ body {
   margin: 20px 0 0 20px;
 }
 
-.Home:hover {
+.home:hover {
   background-color: rgb(28, 112, 112);
   border: 3px solid rgb(68, 183, 183);
 }

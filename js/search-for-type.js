@@ -1,5 +1,5 @@
-import { Home } from "./module.js";
-document.querySelector(".Home").onclick = Home;
+import { home } from "./module.js";
+document.querySelector(".home").onclick = home;
 
 async function searchForType() {
   const pokemonsType = document.getElementById("pokemonsType").value;
@@ -19,10 +19,10 @@ async function searchForType() {
       const li = document.createElement("li");
       const a = document.createElement("a");
       a.href = `./pokemon-details.html?id=${idcaught}`;
-      const texto = document.createTextNode(`#${idcaught}-${pokeArray}`);
+      const text = document.createTextNode(`#${idcaught}-${pokeArray}`);
       ul.appendChild(li);
       li.appendChild(a);
-      a.appendChild(texto);
+      a.appendChild(text);
     });
   } catch (error) {
     alert("Tipo não encontrado");

@@ -8,13 +8,14 @@ export function searchType() {
 }
 
 //Botão que faz a função de voltar para HOME
-export function Home() {
+export function home() {
   window.location.href = "home.html";
+}
+
+export function back() {
+  window.history.back();
 }
 
 export const name = document.getElementById("name");
 export const id = document.getElementById("id");
 export const picture = document.getElementById("picture");
-export const li = document.createElement("li");
-export const a = document.createElement("a");
-export const ul = document.getElementById("moveList");
